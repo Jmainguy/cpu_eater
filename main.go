@@ -1,14 +1,18 @@
 package main
 
-import "time"
+import (
+    "crypto/sha512"
+)
 
-func eat() {
-    go eat()
-    time.Sleep(time.Millisecond)
+
+func sha () {
+    input := "Jon is the cooooolest"
+    sha_512 := sha512.New()
+    sha_512.Write([]byte(input))
 }
 
 func main() {
     for {
-        go eat()
+        sha()
     }
 }

@@ -2,7 +2,7 @@
 %define  debug_package %{nil}
 Name:	cpu_eater
 Version: 0.1
-Release: 1%{?dist}
+Release: 2
 Summary: A golang program to destroy a cpu, for load testing purposes.
 
 License: GPLv2
@@ -29,5 +29,8 @@ install -m 0755 $RPM_BUILD_DIR/cpu_eater/cpu_eater %{buildroot}/usr/sbin
 %post
 
 %changelog
+* Fri Jun 15 2018 Jonathan Mainguy <jon@soh.re> - 0.1-2
+- Before it was basically a fork bomb, now it eats consistently
+
 * Fri Jun 15 2018 Jonathan Mainguy <jon@soh.re> - 0.1-1
 - initial init
