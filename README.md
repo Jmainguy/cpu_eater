@@ -9,5 +9,5 @@ Submit a pull request, then tell openshift to rebuild
 ```/bin/bash
 oc new-project cpu_eater
 oc new-build https://github.com/jmainguy/cpu_eater
-oc new-app --image-stream=cpu_eater
+oc new-app --image-stream=cpueater
 ```
