@@ -4,11 +4,10 @@ metadata:
   generation: 1
   labels:
     app: cpueater
-    jon: jon
   name: cpueater
-  namespace: load-test
+  namespace: cpueater
 spec:
-  replicas: 50
+  replicas: 240
   revisionHistoryLimit: 10
   selector:
     app: cpueater
@@ -32,7 +31,7 @@ spec:
     spec:
       containers:
         - image: >-
-            docker-registry.default.svc:5000/load-test/cpueater
+            docker-registry.default.svc:5000/cpueater/cpueater
           imagePullPolicy: Always
           name: cpueater
           resources: {}
@@ -40,13 +39,13 @@ spec:
           terminationMessagePolicy: File
           resources:
             limits:
-              cpu: "1"
-              memory: "1Gi"
+              cpu: "50m"
+              memory: "100Mi"
             requests:
-              cpu: "100m"
+              cpu: "50m"
               memory: "100Mi"
       nodeSelector:
-        loadtest: "yes"
+        cpueater: "true"
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
@@ -61,5 +60,5 @@ spec:
         from:
           kind: ImageStreamTag
           name: 'cpueater:latest'
-          namespace: load-test
+          namespace: cpueater
       type: ImageChange
